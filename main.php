@@ -3,7 +3,7 @@
 add_action('rest_api_init', 'register_custom_endpoint');
 
 function register_custom_endpoint() {
-    register_rest_route('custom-post-type-export/v1', '/all/', [
+    register_rest_route('custom-post-type-export/v1', '/fetch/', [
         'methods'  => 'GET',
         'callback' => 'get_exported_data',
     ]);

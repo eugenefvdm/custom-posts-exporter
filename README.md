@@ -7,9 +7,9 @@ The plugin has two settings:
 - Name of the Custom Post Type
 - A `limit` that can be set to reduce the number of results returned
 
-API endpoint: `https://example.com/wp-json/custom-post_type-export/v1/all/`
+API endpoint: `https://example.com/wp-json/custom-post-type-export/v1/fetch/`
 
-If all is working, you should get a JSON response with the custom `post type` data, such as the example below:
+If all is working, you should get a JSON response with the Custom Post Type data, such as the example below:
 
 ```json
 {

@@ -7,7 +7,7 @@ The plugin has two settings:
 - Name of the Custom Post Type
 - A `limit` that can be set to reduce the number of results returned
 
-API endpoint: `https://example.com/wp-json/custom-post-type-export/v1/fetch/`
+API endpoint: `https://example.com/wp-json/custom-posts-exporter/v1/fetch/`
 
 If all is working, you should get a JSON response with the Custom Post Type data, such as the example below:
 
@@ -55,7 +55,7 @@ If you have RankMath installed, and you have created an SEO description, this wi
 
 ## Installation
 
-Copy to `wp-content/plugins/custom-post-type-export/` and activate the plugin.
+Copy the files to `wp-content/plugins/custom-posts-exporter/` and activate the plugin.
 
 ## Support
 

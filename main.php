@@ -13,7 +13,7 @@ function get_exported_data() {
     $post_type = get_option('custom_posts_exporter_post_type');
     $limit = get_option('custom_posts_exporter_limit');
 
-    debugger("get_exported_data() was called for post_type '$post_type' and a limit of '$limit'.");
+    debugger("get_exported_data() was called for post_type '$post_type' and a limit of '$limit'.", '', 'INFO');
 
     $data = get_custom_post_types($post_type, $limit);
 

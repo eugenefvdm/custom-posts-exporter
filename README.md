@@ -53,6 +53,14 @@ If all is working, you should get a JSON response with the Custom Post Type data
 
 If you have RankMath installed, and you have created an SEO description, this will be included as `seo_description` in the JSON response.
 
+## Installation
+
+Copy to `wp-content/plugins/custom-post-type-export/` and activate the plugin.
+
+## Support
+
 I'm happy to provide support for this plugin. Please contact me on eugene (at) fintechsystems.net or +27 82 309-6710.
 
-https://wordpress.org/plugins/developers/add/
+## Todo
+
+Submit to WordPress: https://wordpress.org/plugins/developers/add/

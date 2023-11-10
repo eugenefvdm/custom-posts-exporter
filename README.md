@@ -30,7 +30,7 @@ If all is working, you should get a JSON response with the Custom Post Type data
       ],
       "created_at": "2023-11-08 11:11:47",
       "updated_at": "2023-11-09 09:39:51",
-      "seo_description": "This is very cool sir."
+      "seo_description": "This article will rank #1 at Google."
     },
     {
       "post_id": "5961",

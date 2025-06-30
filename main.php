@@ -23,6 +23,13 @@ function get_exported_data() {
             'data'   => 'No data found',
         ];
 
+        debugger("No data found for post_type '$post_type' and a limit of '$limit'.", '', 'ERROR');
+
+        // Here is a list of post types:
+        $post_types = get_post_types();        
+
+        debugger("Post types: " . print_r($post_types, true), '', 'VERBOSE');
+
         return new WP_REST_Response($response, 404);
     }
 
@@ -37,6 +44,8 @@ function get_exported_data() {
 function get_custom_post_types($post_type, $limit) {
     global $wpdb;
 
+    // debugger('$wpdb: ' . print_r($wpdb, true), '', 'VERBOSE');
+
     $data = [];
 
     $query1 = "
@@ -50,10 +59,10 @@ function get_custom_post_types($post_type, $limit) {
           GROUP_CONCAT(tt.taxonomy) as types,
           GROUP_CONCAT(t.name) as type_values,
           GROUP_CONCAT(t.slug) as t_slugs
-        FROM wp_posts p
-          LEFT JOIN wp_term_relationships tr ON p.ID = tr.object_id
-          LEFT JOIN wp_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-          LEFT JOIN wp_terms t ON tt.term_id = t.term_id
+        FROM {$wpdb->prefix}posts p
+          LEFT JOIN {$wpdb->prefix}term_relationships tr ON p.ID = tr.object_id
+          LEFT JOIN {$wpdb->prefix}term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+          LEFT JOIN {$wpdb->prefix}terms t ON tt.term_id = t.term_id
         WHERE p.post_type = '$post_type'
           GROUP BY p.ID
           ORDER BY p.post_date DESC          
@@ -63,7 +72,11 @@ function get_custom_post_types($post_type, $limit) {
         $query1 .= "LIMIT $limit";
     }
 
+    debugger('$query1: ' . $query1, '', 'VERBOSE');
+
     $results = $wpdb->get_results($query1);
+
+    // debugger('$wpdb->get_results($query1): ' . print_r($results, true), '', 'VERBOSE');
 
     if (empty($results)) {
         return [];
@@ -111,7 +124,7 @@ function get_custom_post_types($post_type, $limit) {
           m.post_id,
           m.meta_key,
           m.meta_value
-        FROM wp_postmeta m
+        FROM {$wpdb->prefix}postmeta m
         WHERE m.meta_key = 'rank_math_description';
     ";
 

@@ -8,6 +8,10 @@ After a long time I came back to this plugin because I needed it to work from eu
 
 I also updated the README on my demo project to include diagnostics information.
 
+### Removed
+
+- PhpStorm IDE biolerplate in `.idea`
+
 ## 10 November 2023
 
 - First commit
